@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="maze.ico" type="image/x-icon">
+  <script defer src="index.js"></script>
+  <title>Maze</title>
+</head>
+
+<body>
+  <main class="container">
+    <section class="headings">
+      <h1>Maze</h1>
+      <label class="h1" for="dimension">Ingrese un numero que corresponda a la dimension del laberinto:</label>
+      <input type="text" id="dimension">
+    </section>
+    <section id="maze" class="maze"></section>
+  </main>
+  <aside>
+    <section id="entries" class="entries">
+      <p>
+        Punto de Entrada: <span id="start">X, Y</span>
+      </p>
+      <p>
+        Punto de Salida: <span id="end">X, Y</span>
+      </p>
+    </section>
+    <section id="buttons">
+      <button id="generate">Crear Cuadricula</button>
+      <button id="create" onclick="createMaze()">Generar Camino</button>
+      <button id="show" onclick="">Mostrar Camino</button>
+    </section>
+  </aside>
+</body>
+
+</html>
