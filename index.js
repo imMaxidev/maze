@@ -2,13 +2,14 @@ let input_dimension = document.getElementById("dimension");
 let btn_generate = document.getElementById("generate");
 
 let maze = document.getElementById("maze");
+let dimension = null;
 let position_start = null;
 let position_end = null;
 
 btn_generate.addEventListener("click", createGrid);
 
 function createGrid() {
-  let dimension = input_dimension.value;
+  dimension = input_dimension.value;
   let is_valid = isValid(dimension)
   if (!is_valid) {
     return false;
@@ -46,7 +47,7 @@ function insertGrid(maze, dimension) {
       column.appendChild(row);
     }
     maze.appendChild(column);
-    eventPosition();
+    eventPosition(dimension);
   }
 }
 function eventPosition() {
@@ -74,7 +75,7 @@ function getPosition() {
     return true;
   }
   if (position_end === null) {
-    if (x != 3) {
+    if (x != dimension-1) {
       alert("La casilla final debe estar en la ultima columna");
       return false;
     }
