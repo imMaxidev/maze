@@ -18,9 +18,13 @@
       <label class="h1" for="dimension">Ingrese un numero que corresponda a la dimension del laberinto:</label>
       <input type="text" id="dimension">
     </section>
-    <section id="maze" class="maze"></section>
+    <section id="maze_container" class="maze"></section>
   </main>
   <aside>
+    <section>
+      <label class="h1" for="timming">Tiempo de retraso de animación en ms:</label>
+      <input id="timming" type="number">
+    </section>
     <section id="entries" class="entries">
       <p>
         Punto de Entrada: <span id="start">X, Y</span>
@@ -32,7 +36,7 @@
     <section id="buttons">
       <button id="generate">Crear Cuadricula</button>
       <button id="create" onclick="createMaze()">Generar Camino</button>
-      <button id="show" onclick="">Mostrar Camino</button>
+      <button id="show" onclick="showResult()">Mostrar Camino</button>
     </section>
   </aside>
 </body>
