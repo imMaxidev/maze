@@ -8,14 +8,14 @@ function createMaze(rows, cols, start, end) {
     for (let i = 0; i < rows; i++) {
       maze[i] = [];
       for (let j = 0; j < cols; j++) {
-        maze[i][j] = 0; // 0 representa un camino
+        maze[i][j] = 1; // 1 representa una pared
       }
     }
     return maze;
   }
 
   function isValid(x, y) {
-    return x >= 0 && x < rows && y >= 0 && y < cols && maze[x][y] === 0;
+    return x >= 0 && x < rows && y >= 0 && y < cols && maze[x][y] === 1;
   }
 
   function getNeighbors(x, y) {
@@ -41,13 +41,13 @@ function createMaze(rows, cols, start, end) {
 
   function generateMaze() {
     stack.push(current);
-
     while (stack.length > 0) {
-      maze[current[0]][current[1]] = 1; // 1 representa un camino visitado
-      const neighbors = getNeighbors(current[0], current[1]);
-
+      maze[current[0]][current[1]] = 0; // 0 representa un camino
+      const neighbors = getNeighbors(current[0], current[1]).filter(([nx, ny]) => maze[nx][ny] === 1);
+  
       if (neighbors.length > 0) {
-        const next = neighbors[Math.floor(Math.random() * neighbors.length)];
+        const randomIndex = Math.floor(Math.random() * neighbors.length);
+        const next = neighbors[randomIndex];
         connectCells(current, next);
         stack.push(next);
         current = next;
@@ -62,9 +62,8 @@ function createMaze(rows, cols, start, end) {
   // Marcar el inicio y el final
   maze[start[0]][start[1]] = 'S'; // 'S' representa el inicio
   maze[end[0]][end[1]] = 'E'; // 'E' representa el final
-
   return maze;
 }
 
-const maze = createMaze(4, 4, [0, 0], [2, 3]);
+const maze = createMaze(4, 4, [3, 0], [0, 3]);
 console.log(maze);

@@ -59,7 +59,9 @@ main.container {
 .maze .column.active {
   background-color: #626262;
 }
-
+.maze .column.road{
+  background-color: rgb(252, 196, 75);
+}
 aside {
   display: flex;
   align-items: center;
